@@ -1,4 +1,4 @@
-import os # Acrescentar no topo do arquivo, na primeira linha
+import os
 """
 Django settings for webapp project.
 
@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%+ou3=vfe4vdgtyi^^0x5%h^e-)ghnntegxs*u$h60!cc9o4_!'
+SECRET_KEY = 'django-insecure-ca!joz_2dg!b6(ym03#*&*f0(8yg*idc(ty61-b3gm=bvv6un*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates'], #Modificado
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_blog_db',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
@@ -124,6 +128,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Inclua no final do arquivo as duas configurações abaixo
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
