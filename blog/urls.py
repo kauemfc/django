@@ -1,8 +1,8 @@
 from django.urls import path
-from blog.views import (index, ola, post_show, PostDetailView, get_all_posts, get_post, PostCreateView, create_post, PostListView, SobreTemplateView,)
+from blog.views import index, ola, post_show, PostDetailView, get_all_posts, get_post, PostCreateView, create_post, PostListView, SobreTemplateView
 
 urlpatterns = [
-    path('', index, name= "index"),
+    path('', index, name= "home"),
     path('index/', index, name= "index"),
     path('ola/', ola, name= "ola"),
     path('posts/all', ola, name="posts_list"),
@@ -13,5 +13,8 @@ urlpatterns = [
     path('post/add', PostCreateView.as_view(), name="post_add"),
     path('api/post/add', create_post, name="create_post_data"),
     path('posts', PostListView.as_view(), name="posts_all"),
-    path('about-us', SobreTemplateView.as_view(), name="about_page")
+    path('about-us',
+        SobreTemplateView.as_view(),
+        name="about_page"
+    ),
 ]
