@@ -1,6 +1,5 @@
-import os # Acrescentar no topo do arquivo, na primeira linha
+import os
 from django.contrib.messages import constants as messages
-
 """
 Django settings for webapp project.
 
@@ -23,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vmsta2e#eu#v2)v^p#(1o+4&a9dz)%7gg6ecbp7rll5=@-b9a2'
+SECRET_KEY = 'django-insecure-ca!joz_2dg!b6(ym03#*&*f0(8yg*idc(ty61-b3gm=bvv6un*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
-    'django_extensions', # Acrescentar
     'accounts.apps.AccountsConfig',
 ]
 
@@ -60,7 +58,7 @@ ROOT_URLCONF = 'webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates'], #Modificado
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,6 +87,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -131,7 +130,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Inclua no final do arquivo as duas configurações abaixo
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
@@ -147,3 +145,6 @@ LOGIN_REDIRECT_URL = '/admin'
 LOGOUT_REDIRECT_URL = '/admin'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+MEDIA_URL = '/media/' # Caminho para servir os arquivos de mídia
+MEDIA_ROOT = os.path.join(BASE_DIR, 'files/') # Armazenamento dos arquivos
